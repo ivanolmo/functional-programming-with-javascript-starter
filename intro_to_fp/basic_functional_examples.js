@@ -16,8 +16,8 @@
 
 
 const greeting = () => {
-    let variableGreeting = new Date().getHours() > 12 ? 'good afternoon' : 'good morning';
-    return variableGreeting;
+    let hourOfDay = new Date().getHours();
+    return (hourOfDay > 12 && hourOfDay < 18) ? 'good afternoon' : 'good morning';
 };
 
 console.log(greeting())
