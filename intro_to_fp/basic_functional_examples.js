@@ -32,3 +32,12 @@ console.log(greeting())
 // -----------------------------------------------------------------
 
 
+const countDown = (number) => {
+    let newArray = []
+    for (i = number; i >= 0; i--) {
+        newArray.push(i);
+    };
+    return newArray;
+};
+
+console.log(countDown(50));
