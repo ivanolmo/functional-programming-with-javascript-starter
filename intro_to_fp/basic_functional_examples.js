@@ -5,6 +5,22 @@
 // Hint - this will help with time of day: new Date().getHours()
 // -----------------------------------------------------------------
 
+// const greeting = () => {
+//     let hourOfDay = new Date().getHours();
+//     if (hourOfDay > 12) {
+//         return 'good afternoon'
+//     } else {
+//         return 'good morning'
+//     };
+// };
+
+
+const greeting = () => {
+    let variableGreeting = new Date().getHours() > 12 ? 'good afternoon' : 'good morning';
+    return variableGreeting;
+};
+
+console.log(greeting())
 
 
 
