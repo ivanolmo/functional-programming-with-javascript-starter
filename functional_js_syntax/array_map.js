@@ -26,9 +26,7 @@ console.log(matesWithTitles);
 const awayTeam = ["Picard", "Riker", "Troy", "Data"];
 
 // your code
-const awayTeamUpdated = awayTeam.map((x, i) => {
-    return (i % 2 === 0) ? `${x}: even` : `${x}: odd`
-});
+const awayTeamUpdated = awayTeam.map((x, i) => (i % 2 === 0) ? `${x}: even` : `${x}: odd`);
 console.log(awayTeamUpdated);
 // expected output: Array: ["Picard: even", "Riker: odd", etc...]
 
