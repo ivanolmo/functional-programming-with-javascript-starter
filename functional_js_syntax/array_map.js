@@ -23,10 +23,13 @@ console.log(matesWithTitles);
 
 
 // 3. Write a map function that prints the name: even|odd
-const awayTeam = ["Picard", "Riker", "Troy", "Data"]
+const awayTeam = ["Picard", "Riker", "Troy", "Data"];
 
 // your code
-
+const awayTeamUpdated = awayTeam.map((x, i) => {
+    return (i % 2 === 0) ? `${x}: even` : `${x}: odd`
+});
+console.log(awayTeamUpdated);
 // expected output: Array: ["Picard: even", "Riker: odd", etc...]
 
 // ----------------------------------------------------------
