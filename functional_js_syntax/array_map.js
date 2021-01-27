@@ -2,8 +2,8 @@
 const start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // your code
-// const reversed = start.map();
-// console.log(reversed);
+const reversedStart = start.map(x => Math.abs(x - 11));
+console.log(reversedStart);
 // expected output: Array [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 // ----------------------------------------------------------
