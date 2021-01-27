@@ -54,7 +54,8 @@ console.log(showsEnumerated);
 const numbers = [1, 2, 3, 4]
 
 // your code
-
+const listOfNumbers = numbers.map((x, i, a) => a);
+console.log(listOfNumbers);
 // expected output: Array [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]
 
 // Having trouble with creating a 2D array? 
