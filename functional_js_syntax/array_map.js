@@ -41,7 +41,8 @@ console.log(awayTeamUpdated);
 const sci_fi_shows = ['Manedlorian', 'Enterprise', 'Firefly', 'Battlestar Galactica']
 
 // your code
-
+const showsEnumerated = sci_fi_shows.map((x, i) => [x, i]);
+console.log(showsEnumerated);
 // expected output: Array [['Manedlorian', 0], ['Enterprise', 1], ['Firefly', 2], ['Battlestar Galactica', 3]]
 
 // ----------------------------------------------------------
