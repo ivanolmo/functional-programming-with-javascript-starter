@@ -20,7 +20,7 @@ currentShow.currentSeason = 5
 // but if we freeze the object
 Object.freeze(currentShow);
 
-currentShow.currentSeason = 5;
+// currentShow.currentSeason = 5;
 // Throws an error and current_season remains unchanged
 
 
@@ -28,3 +28,19 @@ currentShow.currentSeason = 5;
 
 // ----------------------------------------------------------
 // Directions: Create your own object and freeze it!
+const myCar = {
+    make: 'Honda',
+    model: 'Accord',
+    year: '2019'
+};
+
+console.log(myCar);
+
+myCar.year = 2020;
+
+console.log(myCar);
+
+Object.freeze(myCar);
+// myCar.year = 2019;
+
+console.log(Object.isFrozen(myCar));
