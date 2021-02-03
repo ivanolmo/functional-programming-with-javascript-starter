@@ -11,11 +11,13 @@ const characters = [
     ['Professor X', 'Wolverine', 'Quicksilver', ['Magneto']]
 ]
 
-const results = characters.flat(1)
+// const results = characters.flat(1)
 // const results = characters.flat(2)
 // const results = characters.flat(3)
 // And what happens if you go past the max depth of the array?
 // const results = characters.flat(5)
+
+// console.log(results);
 
 // ----------------------------------------------------------
 // FIND EXERCISE
@@ -32,6 +34,14 @@ const ids = [
     'ABCKO',
     'IUABC'
 ]
+
+// const idsFind = ids.find(id => id.includes('ABC'));
+
+const idFinder = ((idList) => {
+    return idList.find(id => id.includes('ABC'))
+});
+
+console.log(idFinder(ids));
 
 
 // ----------------------------------------------------------
@@ -51,6 +61,12 @@ const admins = [
     '12mnz09v87bas78fb12',
     '098Xc8x76m3nb4aposi'
 ]
+
+const isUserIdAdmin = ((userId, adminList) => {
+    return adminList.includes(userId);
+});
+
+console.log(isUserIdAdmin(currentUserId, admins));
 
 // ----------------------------------------------------------
 
@@ -75,3 +91,19 @@ const B = [
     '298374naskdj273ubsl',
     '098LKJnsvijevkwejf6'
 ]
+
+// const arrayComparator = ((array1, array2) => {
+//     const result = array1.filter(item => {
+//         array2.includes(item)
+//     });
+//     return result;
+// })
+
+// console.log(arrayComparator(A, B));
+
+const C = A.filter(item => {
+    return B.includes(item)
+ 
+ })
+ 
+ console.log(C)
