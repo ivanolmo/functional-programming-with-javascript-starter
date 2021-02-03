@@ -101,8 +101,22 @@ const characters = [
 // Create an array containing only the names of Captains from all universes.
 
 // Your Code here
+const onlyCaptains = (charList) => {
+  return charList.filter(char => {
+    return char.role === 'Captain'
+  })
+};
+
+const namePicker = (names) => {
+  return names.map(name => name.name)
+};
+
+console.log(namePicker(onlyCaptains(characters)));
+
 
 // expected output: ['Mal Reynolds', 'Kathryn Janeway']
+
+
 
 // ----------------------------------------------------------
 
@@ -113,6 +127,13 @@ const characters = [
 // Group all characters by universe in a multidimensional array
 
 // Your Code here
+// for each item in array:
+//   check universe;
+//   if not universe:
+//     create universe;
+//     add item;
+//   if universe:
+//     add item;
 
 // expected output:
 
@@ -196,6 +217,7 @@ const characters = [
 
 // Your Code here
 
+
 // expected output: [ Marvin the Paranoid Android, Peter Venkman, Dr. Daniel Jackson ]
 
 // ----------------------------------------------------------
@@ -207,5 +229,14 @@ const characters = [
 // What is the average power level across all characters?
 
 // Your code here
+const avgPowerLevel = (charList) => {
+  return charList
+  .map(char => char.power_level)
+  .reduce((acc, curr, i) => (acc += curr) / i)
+}
+
+console.log(avgPowerLevel(characters))
+
+
 
 // expected output: 68.71319452795147
