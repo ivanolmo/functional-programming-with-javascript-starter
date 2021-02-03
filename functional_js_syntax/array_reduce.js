@@ -2,6 +2,11 @@
 const text = ['The ships', 'hung in the sky,', 'much the way', 'that bricks don`t']
 
 // Your Code Here
+const textReducer = text.reduce((result, text) => {
+    return result + ' ' + text;
+});
+
+console.log(textReducer);
 
 // expected output: "The ships hung in the sky, much the way that bricks don't"
 
@@ -25,9 +30,18 @@ const scores = [
         team: 'D',
         score: 13
     }
-]
+];
 
 // Your Code Here
+const scoresReducer = scores.reduce((final, team) => {
+    if (team.score > final.score) {
+        return team
+    } else {
+        return final
+    }
+});
+
+console.log(scoresReducer.team);
 
 // expected output: "C"
 
@@ -58,5 +72,16 @@ const ships = [
 ]
 
 // Your Code Here
+const shipsReducer = ships.reduce((final, ship) => {
+    const shipSpeed = parseFloat(ship.speed.slice(0, -1));
+    const finalSpeed = parseFloat(final.speed.slice(0, -1));
+    if (shipSpeed > finalSpeed) {
+        return ship
+    } else {
+        return final
+    }
+});
+
+console.log(shipsReducer.name);
 
 // Expected output: Tie Fighters
