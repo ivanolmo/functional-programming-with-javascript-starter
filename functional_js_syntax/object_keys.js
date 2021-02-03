@@ -8,7 +8,20 @@ const character = {
     job: 'First Mate'
 };
 
-console.log(Object.keys(character));
+const allKeys = (item) => {
+    return Object.keys(item)
+};
+
+const allKeysLogger = (keys) => {
+    return keys.map(key => {
+        console.log(`This character has a(n) ${key}`);
+        return `This character has a(n) ${key}`;
+    })
+};
+
+console.log(allKeys(character));
+console.log(allKeysLogger(allKeys(character)));
+// console.log(Object.keys(character));
 // Expected Output: 
 // This character has a(n) id.
 // This character has a(n) name.
