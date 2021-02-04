@@ -6,11 +6,27 @@ var nearEarthObjects = require('./nasa_near_earth_object_API.json');
 // Total Count ---------------------------------------------
 // 1. How many near-earth objects did NASA register for the date of the search? Return the asteroid count.
 const totalNEO = nearEarthObjects.element_count;
-console.log(totalNEO);
 console.log(`The total number of near earth objects in this dataset is ${totalNEO}.`)
 
 // Averages ------------------------------------------------
 // 2. What was the average absolute magnitude of all the near earth objects in this data set? Return the average absolute_magnitude_h.
+const averageAbsMag = (data) => {
+    let totalMagnitude = 0;
+    let i = 0;
+    for (subList in data.near_earth_objects) {
+        for (item of data.near_earth_objects[subList]) {
+            totalMagnitude += item.absolute_magnitude_h;
+            i += 1;
+        } 
+    };
+
+    return totalMagnitude / i;
+}
+
+const totalAverageMagnitude = averageAbsMag(nearEarthObjects);
+console.log(`The total average magnitude of all near earth objects in the dataset is ${totalAverageMagnitude}`);
+
+
 
 // Hint - you can achieve this multiple ways, but the reduce method can be a little-known but cool way to find averages. To do it though, you'll need to use the initial_value argument
 // For some extra challenge try using reduce with the initial setting argument. To learn more about it, take a look at this page: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
