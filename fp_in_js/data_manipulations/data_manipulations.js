@@ -5,7 +5,9 @@ var nearEarthObjects = require('./nasa_near_earth_object_API.json');
 
 // Total Count ---------------------------------------------
 // 1. How many near-earth objects did NASA register for the date of the search? Return the asteroid count.
-
+const totalNEO = nearEarthObjects.element_count;
+console.log(totalNEO);
+console.log(`The total number of near earth objects in this dataset is ${totalNEO}.`)
 
 // Averages ------------------------------------------------
 // 2. What was the average absolute magnitude of all the near earth objects in this data set? Return the average absolute_magnitude_h.
