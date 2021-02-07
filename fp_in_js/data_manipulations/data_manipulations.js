@@ -17,6 +17,7 @@ const jsonToArray = (data) => {
 // Total Count ---------------------------------------------
 // 1. How many near-earth objects did NASA register for the date of the search? Return the asteroid count.
 const totalNEO = nearEarthObjects.element_count;
+
 // console.log(`The total number of near earth objects in this dataset is ${totalNEO}.`)
 
 
@@ -32,8 +33,7 @@ const averageAbsMag = (data) => {
     return totalMagnitude / i;
 };
 
-const totalAverageMagnitude = averageAbsMag(jsonToArray(nearEarthObjects));
-// console.log(`The total average magnitude of all near earth objects in the dataset is ${totalAverageMagnitude}`);
+// console.log(`The total average magnitude of all near earth objects in the dataset is ${averageAbsMag(jsonToArray(nearEarthObjects))}`);
 
 
 // Hazardous -----------------------------------------------
@@ -48,16 +48,29 @@ const findHazardousObjects = (data) => {
             closestApproach: item.close_approach_data[0].miss_distance.miles
         }
     ));
-    return finalResult
+    return finalResult;
 };
 
-const allDangerousObjects = findHazardousObjects(jsonToArray(nearEarthObjects));
-// console.log(allDangerousObjects);
+// console.log(findHazardousObjects(jsonToArray(nearEarthObjects)));
+
 
 
 // Too Close for Comfort -----------------------------------
 // 4. A list of all objects (their id, name, max size in miles, and closest approach in miles) that have a miss_distance of less than 900,000 miles
+const superCloseObjects = (data) => {
+    let closeObjects = data.filter(item => parseInt(item.close_approach_data[0].miss_distance.miles) < 900000);
+    let finalResult = closeObjects.map(item => (
+        {
+            id: item.id,
+            name: item.name,
+            maxSize: item.estimated_diameter.miles.estimated_diameter_max,
+            closestApproach: item.close_approach_data[0].miss_distance.miles
+        }
+    ));
+    return finalResult;
+};
 
+// console.log(superCloseObjects(jsonToArray(nearEarthObjects)));
 
 // Alert ---------------------------------------------------
 // 5. Of all the near-earth objects for this date, find the time that the asteroid with the nearest miss will be closest to earth. 
