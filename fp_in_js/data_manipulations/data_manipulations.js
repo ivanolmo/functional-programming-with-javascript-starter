@@ -25,16 +25,14 @@ const totalNEO = nearEarthObjects.element_count;
 const averageAbsMag = (data) => {
     let totalMagnitude = 0;
     let i = 0;
-    for (subList in data.near_earth_objects) {
-        for (item of data.near_earth_objects[subList]) {
-            totalMagnitude += item.absolute_magnitude_h;
-            i += 1;
-        };
-    };
+    for (item of data) {
+        totalMagnitude += item.absolute_magnitude_h;
+        i += 1;
+    }
     return totalMagnitude / i;
 };
 
-const totalAverageMagnitude = averageAbsMag(nearEarthObjects);
+const totalAverageMagnitude = averageAbsMag(jsonToArray(nearEarthObjects));
 console.log(`The total average magnitude of all near earth objects in the dataset is ${totalAverageMagnitude}`);
 
 
@@ -60,7 +58,7 @@ const findHazardousObjects = (data) => {
 };
 
 const allDangerousObjects = findHazardousObjects(nearEarthObjects);
-console.log(allDangerousObjects);
+// console.log(allDangerousObjects);
 
 
 // Too Close for Comfort -----------------------------------
