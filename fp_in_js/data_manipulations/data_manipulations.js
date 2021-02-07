@@ -33,19 +33,13 @@ const averageAbsMag = (data) => {
 };
 
 const totalAverageMagnitude = averageAbsMag(jsonToArray(nearEarthObjects));
-console.log(`The total average magnitude of all near earth objects in the dataset is ${totalAverageMagnitude}`);
+// console.log(`The total average magnitude of all near earth objects in the dataset is ${totalAverageMagnitude}`);
 
 
 // Hazardous -----------------------------------------------
 // 3. A list of all objects (their id, name, max size in miles, and closest approach in miles) that are labeled potentially hazardous
 const findHazardousObjects = (data) => {
-    let potentialNEO = [];
-    for (subList in data.near_earth_objects) {
-        for (item of data.near_earth_objects[subList]) {
-            potentialNEO.push(item);
-        }
-    };
-    let hazObj = potentialNEO.filter(item => item.is_potentially_hazardous_asteroid === true);
+    let hazObj = data.filter(item => item.is_potentially_hazardous_asteroid === true);
     let finalResult = hazObj.map(item => (
         {
             id: item.id,
@@ -57,7 +51,7 @@ const findHazardousObjects = (data) => {
     return finalResult
 };
 
-const allDangerousObjects = findHazardousObjects(nearEarthObjects);
+const allDangerousObjects = findHazardousObjects(jsonToArray(nearEarthObjects));
 // console.log(allDangerousObjects);
 
 
