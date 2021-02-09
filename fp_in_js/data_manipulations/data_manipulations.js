@@ -2,7 +2,7 @@ var nearEarthObjects = require('./nasa_near_earth_object_API.json');
 
 // helper function to pull all objects from json and push them into an array
 const jsonToArray = (data) => {
-    let allObj = [];
+    let allObj = Array();
     for (subList in data.near_earth_objects) {
         for (item of data.near_earth_objects[subList]) {
             allObj.push(item);
@@ -10,6 +10,9 @@ const jsonToArray = (data) => {
     }
     return allObj;
 };
+
+// console.log(jsonToArray(nearEarthObjects));
+
 
 // The object in the nasa_near_earth_object_API.json is a copy of real API response from the NASA Near-Earth Object API. 
 // Find the following from the API:
@@ -72,5 +75,20 @@ const superCloseObjects = (data) => {
 
 // console.log(superCloseObjects(jsonToArray(nearEarthObjects)));
 
+
 // Alert ---------------------------------------------------
-// 5. Of all the near-earth objects for this date, find the time that the asteroid with the nearest miss will be closest to earth. 
+// 5. Of all the near-earth objects for 2019-12-02, find the time that the asteroid with the nearest miss will be closest to earth. 
+const timeOfNEOObject = jsonToArray(nearEarthObjects)
+    .filter(item => item.close_approach_data[0].close_approach_date === "2019-12-02")
+    .reduce((closest, curr) => {
+        const currDist = parseFloat(curr.close_approach_data[0].miss_distance.miles);
+        const closestDist = parseFloat(closest.close_approach_data[0].miss_distance.miles);
+
+        if (currDist > closestDist) {
+            return closest
+        } else {
+            return curr
+        }
+    });
+
+console.log(timeOfNEOObject);
